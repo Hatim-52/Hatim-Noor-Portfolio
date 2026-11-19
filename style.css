@@ -1,14 +1,11 @@
 /* ============================================================
    Palette — Cream / Ink Black / Burnt Orange
-     Cream        #F3EEE3
-     Ink Black    #111111
-     Burnt Orange #D9541E
-
-   LIGHT mode : Cream bg   · Ink Black text  · Burnt Orange accents
-   DARK  mode : Ink Black bg · Cream text    · Burnt Orange accents
+   Same in both light AND dark mode (system preference ignored)
+     Cream        #F3EEE3   background
+     Ink Black    #111111   text
+     Burnt Orange #D9541E   accents / CTAs
    ============================================================ */
 
-/* ── LIGHT mode (default) ───────────────────────────────── */
 :root {
     --bg-color:           #F3EEE3;
     --bg-surface:         rgba(255, 252, 244, 0.90);
@@ -16,7 +13,7 @@
     --border-color:       rgba(17, 17, 17, 0.10);
     --border-color-hover: rgba(217, 84, 30, 0.35);
 
-    --text-primary:   #111111;   /* Ink Black — WCAG AAA on Cream */
+    --text-primary:   #111111;   /* Ink Black */
     --text-secondary: #3d3730;
     --text-muted:     #7a6f63;
 
@@ -30,26 +27,6 @@
 
     --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     --transition-quick:  all 0.2s ease;
-}
-
-/* ── DARK mode ──────────────────────────────────────────── */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --bg-color:           #111111;   /* Ink Black */
-        --bg-surface:         rgba(26, 24, 21, 0.78);
-        --bg-surface-hover:   rgba(40, 37, 32, 0.94);
-        --border-color:       rgba(243, 238, 227, 0.09);
-        --border-color-hover: rgba(217, 84, 30, 0.35);
-
-        --text-primary:   #F3EEE3;   /* Cream — WCAG AAA on Ink Black */
-        --text-secondary: #c5baa8;
-        --text-muted:     #8a7f6e;
-
-        --accent-primary:   #D9541E;
-        --accent-secondary: #e87a3c;
-        --accent-glow:      rgba(217, 84, 30, 0.18);
-        --accent-gradient:  linear-gradient(135deg, #D9541E 0%, #e87a3c 100%);
-    }
 }
 
 /* ============================================================
@@ -146,16 +123,10 @@ body {
 }
 
 #main-header.scrolled {
-    background-color: rgba(243, 238, 227, 0.88);
+    background-color: rgba(243, 238, 227, 0.90);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-color);
-}
-
-@media (prefers-color-scheme: dark) {
-    #main-header.scrolled {
-        background-color: rgba(17, 17, 17, 0.88);
-    }
 }
 
 .nav-container {
@@ -1030,12 +1001,6 @@ section {
     .footer-content { justify-content: center; text-align: center; }
 }
 
-/* Dark-mode mobile nav panel */
-@media (max-width: 768px) and (prefers-color-scheme: dark) {
-    .nav-links {
-        background-color: rgba(17, 17, 17, 0.98);
-    }
-}
 
 /* ============================================================
    Responsive — Mobile 360px
